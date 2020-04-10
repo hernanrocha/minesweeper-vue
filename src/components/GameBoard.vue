@@ -141,7 +141,7 @@ export default Vue.extend({
         mines: 12
       },
       game: {},
-      now: new Date().toString()
+      now: moment()
     }
   },
   mounted() {
@@ -150,7 +150,11 @@ export default Vue.extend({
       if (!this.game || !this.game.created_at || this.game.status !== 'playing') {
         return;
       }
-      this.now = new Date();
+      if (this.game.finished_at) {
+        this.now = moment(this.game.finished_at)
+      } else {
+        this.now = moment() 
+      }
     }, 1000)
   },
   methods: {
@@ -210,7 +214,7 @@ export default Vue.extend({
         return '';
       }
 
-      const now = moment(this.now);
+      const now = this.now;
       const before = moment(this.game.created_at);
 
       let seconds = Math.floor((now - before) / 1000);
