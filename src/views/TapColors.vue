@@ -141,7 +141,7 @@ export default {
     }
   },
   mounted() {
-      this.ws = new WebSocket('ws://192.168.0.230:8002/api/v1/tapcolors/ws');
+      this.ws = new WebSocket('ws://159.203.183.166:8010/api/v1/tapcolors/ws');
       this.ws.addEventListener("message", e => {
         this.game = JSON.parse(e.data);
         this.latency = moment() - moment(this.game.timestamp);

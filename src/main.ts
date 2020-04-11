@@ -11,13 +11,13 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-Vue.filter("timestamp", value => {
+Vue.filter("timestamp", (value: any)  => {
   return moment(value).format("LLL");
 });
 
 // AXIOS
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = "http://localhost:8002";
+axios.defaults.baseURL = "http://159.203.183.166:8010";
 // axios.defaults.baseURL = process.env.VUE_APP_ROOT_API;
 
 new Vue({
