@@ -98,13 +98,13 @@ h1.title {
 #game td {
   font-size: 18px;
   border: solid 1px;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
 #game td.small {
-  width: 35px;
-  height: 35px;
+  width: 15px;
+  height: 15px;
 }
 
 .game-alert {

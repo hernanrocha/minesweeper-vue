@@ -24,7 +24,15 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Rules.vue')
+    component: () => import(/* webpackChunkName: "rules" */ '../views/Rules.vue')
+  },
+  {
+    path: '/tapcolors',
+    name: 'TapColors',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "tapcolors" */ '../views/TapColors.vue')
   }
 ]
 
