@@ -36,7 +36,7 @@
               <label for="level">Level</label>
               <select class="form-control" id="level" v-model="form.level" @change="newGame">
                 <option value="4">Easy</option>
-                <option value="7">Medium</option>
+                <option value="5">Medium</option>
                 <option value="10">Hard</option>
                 <option value="15">Insane</option>
               </select>
@@ -48,6 +48,8 @@
               </div>
             </div>
           </form>
+
+          <button class="btn btn-primary" @click="solve">Find Solution</button>
         </div>
 
       </div>
@@ -141,7 +143,7 @@ export default {
     }
   },
   mounted() {
-      this.ws = new WebSocket('ws://159.203.183.166:8010/api/v1/tapcolors/ws');
+      this.ws = new WebSocket('ws://localhost:8010/api/v1/tapcolors/ws');
       this.ws.addEventListener("message", e => {
         this.game = JSON.parse(e.data);
         this.latency = moment() - moment(this.game.timestamp);
@@ -164,6 +166,9 @@ export default {
     },
     newGame() {
       this.ws.send(JSON.stringify({ action: 'newgame', payload: { level: parseInt(this.form.level), timestamp: moment().toISOString() } }));
+    },
+    solve() {
+      this.ws.send(JSON.stringify({ action: 'solve', payload: { timestamp: moment().toISOString() } }));
     }
   }
 }

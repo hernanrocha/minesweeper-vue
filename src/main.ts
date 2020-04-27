@@ -17,7 +17,7 @@ Vue.filter("timestamp", (value: any)  => {
 
 // AXIOS
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = "http://159.203.183.166:8010";
+axios.defaults.baseURL = "http://localhost:8010";
 // axios.defaults.baseURL = process.env.VUE_APP_ROOT_API;
 
 new Vue({
